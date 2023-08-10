@@ -6,8 +6,8 @@ export async function handle_message(req, res) {
   console.log(messageEvent);
 
   try {
-      if (leadershipUsers.includes(messageEvent.user)) {
-        deleteMessageFromChannel("announcements", res, messageEvent.ts)
+      if (!leadershipUsers.includes(messageEvent.user)) {
+        deleteMessageFromChannel("cmb-announcements", res, messageEvent.ts)
       }
   }
   catch (e) {
